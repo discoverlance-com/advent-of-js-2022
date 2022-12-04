@@ -121,6 +121,13 @@ export default function Timer(props: {
   const [state, dispatch] = useReducer(timerReducer, initialState);
 
   const handleTimerStart = useCallback(() => {
+    if (
+      !state.seconds.match(/[0-5]?[0-9]/) &&
+      !state.minutes.match(/[0-5]?[0-9]/)
+    ) {
+      alert("Wrong Input in numbers");
+      return;
+    }
     const date = new Date();
     const seconds = addSeconds(date, Number(state.seconds));
     const minutes = addMinutes(date, Number(state.minutes));
@@ -129,7 +136,9 @@ export default function Timer(props: {
       payload: {
         startTimer: true,
         startDate: new Date(
-          `${date.toDateString()} ${date.getHours()}:${minutes}:${seconds}:00`
+          `${date.toDateString()} ${date.getHours()}:${minutes}:${
+            seconds + 1
+          }:00`
         ),
         minutes: Number(state.minutes),
         seconds: Number(state.seconds),
@@ -161,6 +170,36 @@ export default function Timer(props: {
       },
     });
   }, [state]);
+
+  const handleSecondsUpdate = useCallback(
+    (seconds: string) => {
+      dispatch({
+        type: "updateTime",
+        payload: {
+          startTimer: false,
+          minutes: Number(state.minutes),
+          seconds: Number(seconds),
+          actionButtonText: "start",
+        },
+      });
+    },
+    [state]
+  );
+
+  const handleMinutesUpdate = useCallback(
+    (minutes: string) => {
+      dispatch({
+        type: "updateTime",
+        payload: {
+          startTimer: false,
+          minutes: Number(minutes),
+          seconds: Number(state.seconds),
+          actionButtonText: "start",
+        },
+      });
+    },
+    [state]
+  );
 
   useEffect(() => {
     let timer: number = 0;
@@ -217,9 +256,25 @@ export default function Timer(props: {
   return (
     <div className="timer">
       <div className="time">
-        <Minutes value={state.minutes} />
+        <Minutes
+          value={state.minutes}
+          updateMinutes={handleMinutesUpdate}
+          isTimerActive={
+            state.startTimer ||
+            state.actionButtonText === "pause" ||
+            state.actionButtonText === "resume"
+          }
+        />
         <div className="colon">:</div>
-        <Seconds value={state.seconds} />
+        <Seconds
+          value={state.seconds}
+          updateSeconds={handleSecondsUpdate}
+          isTimerActive={
+            state.startTimer ||
+            state.actionButtonText === "pause" ||
+            state.actionButtonText === "resume"
+          }
+        />
       </div>
       <button
         className="start"
