@@ -14,7 +14,6 @@ export default function Seconds(props: SecondsProps) {
         title="Must be valid seconds"
         disabled={props.isTimerActive}
         onBlur={(event) => {
-          console.log(event.target.validity);
           if (event.target.validity.patternMismatch) {
             console.log("pattern mismatch");
             event.target.value = "00";
