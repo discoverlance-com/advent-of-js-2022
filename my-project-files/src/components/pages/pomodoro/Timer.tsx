@@ -9,6 +9,7 @@ import {
   getSeconds,
   padString,
 } from "~/app/lib/utils";
+import styles from "~/app/routes/projects/day-1/global-day-1.module.css";
 
 type ACTIONTYPE =
   | {
@@ -254,8 +255,8 @@ export default function Timer(props: {
     };
   }, [state]);
   return (
-    <div className="timer">
-      <div className="time">
+    <div className={styles.timer}>
+      <div className={styles.time}>
         <Minutes
           value={state.minutes}
           updateMinutes={handleMinutesUpdate}
@@ -265,7 +266,7 @@ export default function Timer(props: {
             state.actionButtonText === "resume"
           }
         />
-        <div className="colon">:</div>
+        <div className={styles.colon}>:</div>
         <Seconds
           value={state.seconds}
           updateSeconds={handleSecondsUpdate}
@@ -277,7 +278,7 @@ export default function Timer(props: {
         />
       </div>
       <button
-        className="start"
+        className={styles.start}
         onClick={
           state.actionButtonText === "start" ||
           state.actionButtonText === "resume"

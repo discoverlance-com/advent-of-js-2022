@@ -1,5 +1,16 @@
 import { Outlet, NavLink, useNavigation } from "react-router-dom";
 
+const NAV_LIST = [
+  {
+    href: "/pomodoro",
+    title: "Day 1",
+  },
+  {
+    href: "/e-commerce-component",
+    title: "Day 2",
+  },
+];
+
 export default function Root() {
   const navigation = useNavigation();
   return (
@@ -28,16 +39,19 @@ export default function Root() {
                 Home
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to={`/pomodoro`}
-                className={({ isActive, isPending }) =>
-                  isActive ? "active" : isPending ? "pending" : ""
-                }
-              >
-                Day 1
-              </NavLink>
-            </li>
+            {NAV_LIST.map((item) => (
+              <li>
+                <NavLink
+                  key={item.title}
+                  to={item.href}
+                  className={({ isActive, isPending }) =>
+                    isActive ? "active" : isPending ? "pending" : ""
+                  }
+                >
+                  {item.title}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
 

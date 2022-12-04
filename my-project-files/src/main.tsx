@@ -8,6 +8,7 @@ import PomodoroProject from "~/app/routes/projects/day-1/pomodoro";
 import Index from "./routes";
 import "./normalize.css";
 import "./index.css";
+import Ecommerce from "./routes/projects/day-2/e-commerce";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/pomodoro",
         element: <PomodoroProject />,
+      },
+      {
+        path: "/e-commerce-component",
+        element: <Ecommerce />,
       },
     ],
   },

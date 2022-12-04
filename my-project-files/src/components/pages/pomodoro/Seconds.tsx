@@ -1,3 +1,5 @@
+import styles from "~/app/routes/projects/day-1/global-day-1.module.css";
+
 interface SecondsProps {
   value: string;
   updateSeconds: (seconds: string) => void;
@@ -6,7 +8,7 @@ interface SecondsProps {
 
 export default function Seconds(props: SecondsProps) {
   return (
-    <div className="seconds">
+    <div className={styles.seconds}>
       <input
         onChange={(event) => props.updateSeconds(event.target.value)}
         type="text"

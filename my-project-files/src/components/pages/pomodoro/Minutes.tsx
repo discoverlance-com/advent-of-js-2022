@@ -1,3 +1,5 @@
+import styles from "~/app/routes/projects/day-1/global-day-1.module.css";
+
 interface MinutesProps {
   value: string;
   updateMinutes: (minutes: string) => void;
@@ -6,7 +8,7 @@ interface MinutesProps {
 
 export default function Minutes(props: MinutesProps) {
   return (
-    <div className="minutes">
+    <div className={styles.minutes}>
       <input
         onChange={(event) => props.updateMinutes(event.target.value)}
         type="text"
