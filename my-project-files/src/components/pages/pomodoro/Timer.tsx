@@ -63,8 +63,8 @@ type ActionButtonText = "start" | "pause" | "resume";
 const initialState = {
   actionButtonText: "start",
   startDate: new Date(),
-  minutes: "0",
-  seconds: "10",
+  minutes: "15",
+  seconds: "00",
   startTimer: false,
 };
 
