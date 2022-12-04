@@ -4,10 +4,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Root from "~/app/routes/root";
 import ErrorPage from "./error-page";
-import "./normalize.css";
-import "./index.css";
 import PomodoroProject from "~/app/routes/projects/day-1/pomodoro";
 import Index from "./routes";
+import "./normalize.css";
+import "./index.css";
 
 const router = createBrowserRouter([
   {

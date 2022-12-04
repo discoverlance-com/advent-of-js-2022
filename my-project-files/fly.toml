@@ -6,7 +6,7 @@ kill_timeout = 5
 processes = []
 
 [env]
-  PORT = "8043"
+  PORT = "8080"
 
 [experimental]
   allowed_public_ports = []
@@ -14,7 +14,7 @@ processes = []
 
 [[services]]
   http_checks = []
-  internal_port = 8043
+  internal_port = 8080
   processes = ["app"]
   protocol = "tcp"
   script_checks = []

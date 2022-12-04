@@ -1,3 +1,5 @@
 Dockerfile 
+dist
 node_modules
 .gitignore
+fly.toml
