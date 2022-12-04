@@ -1,6 +1,7 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, useNavigation } from "react-router-dom";
 
 export default function Root() {
+  const navigation = useNavigation();
   return (
     <>
       <main id="page">
@@ -40,7 +41,10 @@ export default function Root() {
           </ul>
         </nav>
 
-        <div id="outlet">
+        <div
+          id="outlet"
+          className={navigation.state === "loading" ? "loading" : ""}
+        >
           <Outlet />
         </div>
       </main>

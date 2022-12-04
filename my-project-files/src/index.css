@@ -17,8 +17,11 @@
 
 #page {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 a {
@@ -30,18 +33,11 @@ a:hover {
   color: #535bf2;
 }
 
-.pending {
-  color: rgb(1, 1, 52);
-}
-
-.active {
-  color: aquamarine;
-}
-
 h1 {
   font-size: 2.8rem;
   line-height: 1.1;
   font-weight: 900;
+  margin-top: 0;
 }
 
 h2 {
@@ -82,9 +78,23 @@ button:focus-visible {
   }
 }
 
+.pending {
+  color: rgb(1, 1, 52);
+}
+
+.active {
+  color: aquamarine;
+}
+
 .nav-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: 24px;
+}
+
+#outlet.loading {
+  opacity: 0.25;
+  transition: opacity 2000ms;
+  transition-delay: 2000ms;
 }
