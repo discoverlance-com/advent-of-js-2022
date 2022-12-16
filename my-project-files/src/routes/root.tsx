@@ -9,6 +9,10 @@ const NAV_LIST = [
     href: "/e-commerce-component",
     title: "Day 2",
   },
+  {
+    href: "/piano",
+    title: "Day 3",
+  },
 ];
 
 export default function Root() {

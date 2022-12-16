@@ -9,6 +9,7 @@ import Index from "./routes";
 import "./normalize.css";
 import "./index.css";
 import Ecommerce from "./routes/projects/day-2/e-commerce";
+import PianoProject from "./routes/projects/day-3/Piano";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/e-commerce-component",
         element: <Ecommerce />,
+      },
+      {
+        path: "/piano",
+        element: <PianoProject />,
       },
     ],
   },
