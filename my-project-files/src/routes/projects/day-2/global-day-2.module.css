@@ -127,6 +127,14 @@ button {
   gap: 10px;
 }
 
+button:disabled {
+  background: gray;
+}
+
+button:disabled:hover {
+  background: gray;
+}
+
 ul.menu button {
   position: absolute;
 }

@@ -7,7 +7,6 @@ interface MenuItemProps extends MenuItemType {
 
 export default function MenuItem(props: MenuItemProps) {
   const addToCart = () => {
-    console.log("AddToCart in MenuItem");
     props.addToCart(props.name);
   };
   return (

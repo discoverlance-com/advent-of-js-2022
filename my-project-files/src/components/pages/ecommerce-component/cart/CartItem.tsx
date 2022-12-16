@@ -1,10 +1,12 @@
 import styles from "~/app/routes/projects/day-2/global-day-2.module.css";
 import { CartItem as CartItemType } from "~/app/routes/projects/day-2/types";
 
-interface CartItemProps extends CartItemType {}
+interface CartItemProps extends CartItemType {
+  addToCart: (item: string) => void;
+  removeFromCart: (item: string) => void;
+}
 
 export default function CartItem(props: CartItemProps) {
-  //console.log(props);
   return (
     <li>
       <div className={styles.plate}>
@@ -16,11 +18,18 @@ export default function CartItem(props: CartItemProps) {
         <p className={styles.price}>{`$${props.price}`}</p>
       </div>
       <div className={styles.quantity__wrapper}>
-        <button className={styles.decrease}>
+        <button
+          className={styles.decrease}
+          onClick={() => props.removeFromCart(props.name)}
+        >
           <img src="/images/chevron.svg" />
         </button>
         <div className={styles.quantity}>{props.count}</div>
-        <button className={styles.increase}>
+        <button
+          className={styles.increase}
+          onClick={() => props.addToCart(props.name)}
+          disabled={props.total === 0}
+        >
           <img src="/images/chevron.svg" />
         </button>
       </div>

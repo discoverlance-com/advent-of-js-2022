@@ -5,13 +5,14 @@ import CartTotals from "./CartTotals";
 
 interface CartProps {
   items: CartItemType[];
+  addToCart: (item: string) => void;
+  removeFromCart: (item: string) => void;
   subtotal: number;
   total: number;
   tax: number;
 }
 
 export default function Cart(props: CartProps) {
-  //console.log({ items: props.items });
   return (
     <div className={`${styles.panel} ${styles.cart}`}>
       <h1>Your Cart</h1>
@@ -22,7 +23,14 @@ export default function Cart(props: CartProps) {
 
       <ul className={styles.cartSummary}>
         {props.items.length >= 1 &&
-          props.items.map((item) => <CartItem key={item.alt} {...item} />)}
+          props.items.map((item) => (
+            <CartItem
+              key={item.alt}
+              {...item}
+              addToCart={props.addToCart}
+              removeFromCart={props.removeFromCart}
+            />
+          ))}
       </ul>
 
       <div className={styles.totals}>

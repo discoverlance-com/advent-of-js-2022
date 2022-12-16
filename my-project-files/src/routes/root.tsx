@@ -40,9 +40,8 @@ export default function Root() {
               </NavLink>
             </li>
             {NAV_LIST.map((item) => (
-              <li>
+              <li key={item.href}>
                 <NavLink
-                  key={item.href}
                   to={item.href}
                   className={({ isActive, isPending }) =>
                     isActive ? "active" : isPending ? "pending" : ""

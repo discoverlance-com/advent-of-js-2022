@@ -21,5 +21,5 @@ export interface InitialStoreState {
 
 export type CART_STORE_ACTIONS =
   | { type: "add"; payload: InitialStoreState }
-  | { type: "remove"; payload: { item: CartItem["name"] } }
-  | { type: "delete"; payload: { item: CartItem["name"] } };
+  | { type: "remove"; payload: InitialStoreState }
+  | { type: "delete"; payload: InitialStoreState };
