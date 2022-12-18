@@ -10,6 +10,7 @@ import "./normalize.css";
 import "./index.css";
 import Ecommerce from "./routes/projects/day-2/e-commerce";
 import PianoProject from "./routes/projects/day-3/Piano";
+import ComputerKeyboard from "./routes/projects/day-4/ComputerKeyboard";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/piano",
         element: <PianoProject />,
+      },
+      {
+        path: "/computer-keyboard",
+        element: <ComputerKeyboard />,
       },
     ],
   },

@@ -13,6 +13,10 @@ const NAV_LIST = [
     href: "/piano",
     title: "Day 3",
   },
+  {
+    href: "/computer-keyboard",
+    title: "Day 4",
+  },
 ];
 
 export default function Root() {
